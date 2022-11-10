@@ -1,0 +1,15 @@
+/Users/thienannguyenle/Documents/Projects/CSharp/QuanLyCuaHang/QuanLyCuaHang/bin/Debug/net6.0/QuanLyCuaHang
+/Users/thienannguyenle/Documents/Projects/CSharp/QuanLyCuaHang/QuanLyCuaHang/bin/Debug/net6.0/QuanLyCuaHang.deps.json
+/Users/thienannguyenle/Documents/Projects/CSharp/QuanLyCuaHang/QuanLyCuaHang/bin/Debug/net6.0/QuanLyCuaHang.runtimeconfig.json
+/Users/thienannguyenle/Documents/Projects/CSharp/QuanLyCuaHang/QuanLyCuaHang/bin/Debug/net6.0/QuanLyCuaHang.dll
+/Users/thienannguyenle/Documents/Projects/CSharp/QuanLyCuaHang/QuanLyCuaHang/bin/Debug/net6.0/QuanLyCuaHang.pdb
+/Users/thienannguyenle/Documents/Projects/CSharp/QuanLyCuaHang/QuanLyCuaHang/obj/Debug/net6.0/QuanLyCuaHang.csproj.AssemblyReference.cache
+/Users/thienannguyenle/Documents/Projects/CSharp/QuanLyCuaHang/QuanLyCuaHang/obj/Debug/net6.0/QuanLyCuaHang.GeneratedMSBuildEditorConfig.editorconfig
+/Users/thienannguyenle/Documents/Projects/CSharp/QuanLyCuaHang/QuanLyCuaHang/obj/Debug/net6.0/QuanLyCuaHang.AssemblyInfoInputs.cache
+/Users/thienannguyenle/Documents/Projects/CSharp/QuanLyCuaHang/QuanLyCuaHang/obj/Debug/net6.0/QuanLyCuaHang.AssemblyInfo.cs
+/Users/thienannguyenle/Documents/Projects/CSharp/QuanLyCuaHang/QuanLyCuaHang/obj/Debug/net6.0/QuanLyCuaHang.csproj.CoreCompileInputs.cache
+/Users/thienannguyenle/Documents/Projects/CSharp/QuanLyCuaHang/QuanLyCuaHang/obj/Debug/net6.0/QuanLyCuaHang.dll
+/Users/thienannguyenle/Documents/Projects/CSharp/QuanLyCuaHang/QuanLyCuaHang/obj/Debug/net6.0/refint/QuanLyCuaHang.dll
+/Users/thienannguyenle/Documents/Projects/CSharp/QuanLyCuaHang/QuanLyCuaHang/obj/Debug/net6.0/QuanLyCuaHang.pdb
+/Users/thienannguyenle/Documents/Projects/CSharp/QuanLyCuaHang/QuanLyCuaHang/obj/Debug/net6.0/QuanLyCuaHang.genruntimeconfig.cache
+/Users/thienannguyenle/Documents/Projects/CSharp/QuanLyCuaHang/QuanLyCuaHang/obj/Debug/net6.0/ref/QuanLyCuaHang.dll
