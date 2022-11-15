@@ -25,13 +25,13 @@ namespace QuanLyCuaHang
                 new ProductItem("12", "Kem", "Dec 12, 2023", "2021", "Walls", "Thuc Pham")
             };
 
-            // Xuat danh sach san pham
-            ThaoTacHeThong.HienThiDanhSachSanPham(productList);
+            // Xuat danh sach san pham hien co
+            ThaoTacHeThong.HienThiDanhSachSanPham(productList, "Danh sach san pham hien co: ");
 
             while (true)
             {
                 // Hoi nguoi dung muon lam gi tiep theo
-                ThaoTacHeThong.HienThiPhanLoaiThaoTac(productList);
+                productList = ThaoTacHeThong.HienThiPhanLoaiThaoTac(productList);
                 
             }
             Console.WriteLine("Da thoat khoi chuong trinh - De tiep tuc su dung, ban hay khoi dong lai");
