@@ -44,7 +44,7 @@ namespace QuanLyCuaHang
             string[] categoryList = new string[products.Length];
             for (int i = 0; i < products.Length; i++)
             {
-                categoryList[i] = products[0].category;
+                categoryList[i] = products[i].category;
             }
 
             return categoryList.Distinct().ToArray();

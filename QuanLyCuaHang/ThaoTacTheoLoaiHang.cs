@@ -12,7 +12,7 @@ namespace QuanLyCuaHang
             Console.WriteLine("- SUA loai hang: Nhap C");
             Console.WriteLine("- TIM KIEM loai hang: Nhap D");
             Console.WriteLine("- HIEN THI DANH SACH cac loai hang: Nhap E");
-            Console.WriteLine("(Trong truong hop nhap khong theo cac loai ke tren - A: THEM san pham se duoc chon mac dinh)");
+            Console.WriteLine("(Trong truong hop nhap khong theo cac loai ke tren - A: THEM loai hang se duoc chon mac dinh)");
             Console.Write("Su lua chon cua ban la: ");
 
             string action = Console.ReadLine();
@@ -21,7 +21,7 @@ namespace QuanLyCuaHang
             {
                 case "A":
                     Console.WriteLine("Ban chon THEM LOAI HANG");
-                    return ThaoTacTheoSanPham.ThemSanPhamMoi(products);
+                    return ThaoTacTheoLoaiHang.ThemLoaiHangMoi(products);
                 case "B":
                     Console.WriteLine("Ban chon XOA LOAI HANG");
                     return ThaoTacTheoSanPham.XoaSanPham(products);
@@ -40,6 +40,24 @@ namespace QuanLyCuaHang
                     return ThaoTacTheoSanPham.ThemSanPhamMoi(products);
             }
             Console.WriteLine("--------------------------------------------");
+        }
+
+        static public void HienThiDanhSachLoaiHang(string[] categoryList, string message)
+        {
+            Console.WriteLine("----------------");
+            Console.WriteLine($"{message}:");
+            foreach(string category in categoryList)
+            {
+                Console.WriteLine($"- {category}");
+            }
+            Console.WriteLine("----------------");
+        }
+
+        static public ProductItem[] ThemLoaiHangMoi(ProductItem[] products)
+        {
+            ThaoTacTheoLoaiHang.HienThiDanhSachLoaiHang(HelperFunctions.GetUniqueCategoryList(products), "Danh sach loai hang hien co");
+            
+            return products;
         }
     }
 }
