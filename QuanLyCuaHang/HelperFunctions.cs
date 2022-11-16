@@ -38,6 +38,17 @@ namespace QuanLyCuaHang
             // So sanh ca 2 gia tri o cung Lower case de dam bao cung noi dung - case insensitive
             return currentItemPropValue != propValue.ToLower();
         }
+
+        static public string[] GetUniqueCategoryList(ProductItem[] products)
+        {
+            string[] categoryList = new string[products.Length];
+            for (int i = 0; i < products.Length; i++)
+            {
+                categoryList[i] = products[0].category;
+            }
+
+            return categoryList.Distinct().ToArray();
+        }
     }
 }
 

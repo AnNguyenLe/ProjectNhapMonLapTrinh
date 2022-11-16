@@ -17,7 +17,7 @@ namespace QuanLyCuaHang
             Console.Write("Lua chon cua ban la: ");
             string selection = Console.ReadLine();
 
-            Console.Write("Nhap gia tri: Vi du, ban chon TEN san pham - thi nhap: 'Banh mi': ");
+            Console.Write("Nhap gia tri: Vi du, ban chon TEN san pham - thi nhap: 'Banh Mi': ");
             string inputValue = Console.ReadLine();
 
             switch (selection)
@@ -48,6 +48,7 @@ namespace QuanLyCuaHang
             Console.WriteLine("- XOA san pham: Nhap B");
             Console.WriteLine("- SUA san pham: Nhap C");
             Console.WriteLine("- TIM KIEM san pham: Nhap D");
+            Console.WriteLine("- HIEN THI DANH SACH cac san pham: Nhap E");
             Console.WriteLine("(Trong truong hop nhap khong theo cac loai ke tren - A: THEM san pham se duoc chon mac dinh)");
             Console.Write("Su lua chon cua ban la: ");
 
@@ -67,6 +68,10 @@ namespace QuanLyCuaHang
                 case "D":
                     Console.WriteLine("Ban chon TIM KIEM SAN PHAM");
                     return ThaoTacTheoSanPham.TimKiemSanPham(products); ;
+                case "E":
+                    Console.WriteLine("Ban chon HIEN THI DANH SACH SAN PHAM");
+                    ThaoTacHeThong.HienThiDanhSachSanPham(products, "Danh sach san pham hien co");
+                    return products;
                 default:
                     Console.WriteLine("Mac dinh - By default: Ban chon THEM SAN PHAM");
                     return ThaoTacTheoSanPham.ThemSanPhamMoi(products);

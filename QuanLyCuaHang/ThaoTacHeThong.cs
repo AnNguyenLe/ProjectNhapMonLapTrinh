@@ -45,10 +45,9 @@ namespace QuanLyCuaHang
                     Console.WriteLine("Ban chon thao tac theo SAN PHAM - Product");
                     return ThaoTacTheoSanPham.DanhSachThaoTacTrenSanPham(products);
 
-                //case "2":
-                //    Console.WriteLine("Ban chon thao tac theo LOAI HANG - Category");
-                //    return ThaoTacTheoLoaiHang.DanhSachThaoTacTrenLoaiHang(products);
-
+                case "2":
+                    Console.WriteLine("Ban chon thao tac theo LOAI HANG - Category");
+                    return ThaoTacTheoLoaiHang.DanhSachThaoTacTrenLoaiHang(products);
 
                 default:
                     Console.WriteLine("Mac dinh - By default, Ban chon thao tac theo SAN PHAM - Product");
@@ -56,13 +55,6 @@ namespace QuanLyCuaHang
             }
             Console.WriteLine("--------------------------------------------");
         }
-
-        
-
-        
-
-
-        
     }
 }
 
