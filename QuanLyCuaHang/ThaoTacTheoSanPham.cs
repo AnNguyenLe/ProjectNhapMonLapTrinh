@@ -58,25 +58,24 @@ namespace QuanLyCuaHang
             {
                 case "A":
                     Console.WriteLine("Ban chon THEM SAN PHAM");
-                    return ThaoTacTheoSanPham.ThemSanPhamMoi(products);
+                    return ThemSanPhamMoi(products);
                 case "B":
                     Console.WriteLine("Ban chon XOA SAN PHAM");
-                    return ThaoTacTheoSanPham.XoaSanPham(products);
+                    return XoaSanPham(products);
                 case "C":
                     Console.WriteLine("Ban chon SUA/THAY DOI SAN PHAM");
-                    return ThaoTacTheoSanPham.ThayDoiSanPham(products);
+                    return ThayDoiSanPham(products);
                 case "D":
                     Console.WriteLine("Ban chon TIM KIEM SAN PHAM");
-                    return ThaoTacTheoSanPham.TimKiemSanPham(products); ;
+                    return TimKiemSanPham(products); ;
                 case "E":
                     Console.WriteLine("Ban chon HIEN THI DANH SACH SAN PHAM");
                     ThaoTacHeThong.HienThiDanhSachSanPham(products, "Danh sach san pham hien co");
                     return products;
                 default:
                     Console.WriteLine("Mac dinh - By default: Ban chon THEM SAN PHAM");
-                    return ThaoTacTheoSanPham.ThemSanPhamMoi(products);
+                    return ThemSanPhamMoi(products);
             }
-            Console.WriteLine("--------------------------------------------");
         }
 
         static public ProductItem[] ThemSanPhamMoi(ProductItem[] products)
@@ -94,7 +93,7 @@ namespace QuanLyCuaHang
             newProduct.expDate = DateTime.Parse(Console.ReadLine());
 
             Console.Write("Nam san xuat cua san pham - vi du: 2022: ");
-            newProduct.yearOfManufacture = Int32.Parse(Console.ReadLine());
+            newProduct.yearOfManufacture = int.Parse(Console.ReadLine());
 
             Console.Write("Ten cua nha san xuat: ");
             newProduct.manufacturer = Console.ReadLine();
@@ -115,7 +114,7 @@ namespace QuanLyCuaHang
 
         static public ProductItem[] XoaSanPham(ProductItem[] products)
         {
-            (string propKey, string propValue) = ThaoTacTheoSanPham.HanhDongTheoDacTinh();
+            (string propKey, string propValue) = HanhDongTheoDacTinh();
             ProductItem[] deletedProducts = Array.FindAll(products, item => HelperFunctions.DeterminePropKeyIsPropValue(item, propKey, propValue));
             ProductItem[] finalProductList = Array.FindAll(products, item => HelperFunctions.DeterminePropKeyIsNotPropValue(item, propKey, propValue));
 
@@ -130,7 +129,7 @@ namespace QuanLyCuaHang
 
         static public ProductItem[] TimKiemSanPham(ProductItem[] products)
         {
-            (string propKey, string propValue) = ThaoTacTheoSanPham.HanhDongTheoDacTinh();
+            (string propKey, string propValue) = HanhDongTheoDacTinh();
             ProductItem[] macthProductList = Array.FindAll(products, item => HelperFunctions.DeterminePropKeyIsPropValueCaseInsensitive(item, propKey, propValue));
             ThaoTacHeThong.HienThiDanhSachSanPham(macthProductList, $"Danh sach san pham phu hop voi {propKey} ban yeu cau:");
             return products;
@@ -145,7 +144,7 @@ namespace QuanLyCuaHang
             int matchProductIndex = Array.FindIndex(products, item => HelperFunctions.DeterminePropKeyIsPropValue(item, "id", selectedId));
             ProductItem oldProduct = products[matchProductIndex];
 
-            (string propKey, string propValue) = ThaoTacTheoSanPham.HanhDongTheoDacTinh();
+            (string propKey, string propValue) = HanhDongTheoDacTinh();
 
 
             // Update value cho key trong product da chon

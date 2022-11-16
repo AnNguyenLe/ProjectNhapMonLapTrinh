@@ -1,23 +1,17 @@
 ﻿<Properties StartupConfiguration="{568AFB51-1DC2-4A9E-8CD0-640D4D958AC9}|Default">
-  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
-  <MonoDevelop.Ide.ItemProperties.QuanLyCuaHang PreferredExecutionTarget="MonoDevelop.Default" />
-  <MonoDevelop.Ide.DebuggingService.PinnedWatches />
-  <MonoDevelop.Ide.DebuggingService.Breakpoints>
-    <BreakpointStore />
-  </MonoDevelop.Ide.DebuggingService.Breakpoints>
-  <MultiItemStartupConfigurations />
-  <MonoDevelop.Ide.Workbench ActiveDocument="QuanLyCuaHang/ThaoTacTheoLoaiHang.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="QuanLyCuaHang/HelperFunctions.cs">
     <Files>
-      <File FileName="QuanLyCuaHang/Program.cs" Line="34" Column="46" />
-      <File FileName="QuanLyCuaHang/ThaoTacHeThong.cs" Line="118" Column="28" />
-      <File FileName="QuanLyCuaHang/ProductItem.cs" Line="22" Column="6" />
-      <File FileName="QuanLyCuaHang/ThaoTacTheoSanPham.cs" Line="12" Column="1" />
-      <File FileName="QuanLyCuaHang/ThaoTacTheoLoaiHang.cs" Line="12" Column="1" />
+      <File FileName="QuanLyCuaHang/ProductItem.cs" Line="9" Column="36" />
+      <File FileName="QuanLyCuaHang/Program.cs" Line="34" Column="55" />
+      <File FileName="QuanLyCuaHang/ThaoTacHeThong.cs" Line="50" Column="68" />
+      <File FileName="QuanLyCuaHang/ThaoTacTheoLoaiHang.cs" Line="58" Column="81" />
+      <File FileName="QuanLyCuaHang/ThaoTacTheoSanPham.cs" Line="51" Column="56" />
+      <File FileName="QuanLyCuaHang/HelperFunctions.cs" Line="52" Column="6" />
     </Files>
     <Pads>
       <Pad Id="ProjectPad">
         <State name="__root__">
-          <Node name="QuanLyCuaHang" expanded="True" selected="True">
+          <Node name="QuanLyCuaHang" expanded="True">
             <Node name="QuanLyCuaHang" expanded="True" />
           </Node>
         </State>
@@ -27,4 +21,11 @@
       </Pad>
     </Pads>
   </MonoDevelop.Ide.Workbench>
+  <MonoDevelop.Ide.ItemProperties.QuanLyCuaHang PreferredExecutionTarget="MonoDevelop.Default" />
+  <MonoDevelop.Ide.DebuggingService.Breakpoints>
+    <BreakpointStore />
+  </MonoDevelop.Ide.DebuggingService.Breakpoints>
+  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
+  <MultiItemStartupConfigurations />
+  <MonoDevelop.Ide.DebuggingService.PinnedWatches />
 </Properties>

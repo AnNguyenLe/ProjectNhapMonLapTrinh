@@ -22,7 +22,7 @@ namespace QuanLyCuaHang
             {
                 ProductItem product = productList[i];
                 Console.WriteLine("----------------------");
-                ThaoTacHeThong.HienThiSanPham(product);
+                HienThiSanPham(product);
             }
             Console.WriteLine("--------------------------------------------");
         }
@@ -53,7 +53,6 @@ namespace QuanLyCuaHang
                     Console.WriteLine("Mac dinh - By default, Ban chon thao tac theo SAN PHAM - Product");
                     return ThaoTacTheoSanPham.DanhSachThaoTacTrenSanPham(products);
             }
-            Console.WriteLine("--------------------------------------------");
         }
     }
 }
