@@ -197,17 +197,38 @@ namespace QuanLyCuaHang
             return products;
         }
 
+        static public string GetPropValueFromProductItem(ProductItem productItem, string propKey)
+        {
+            Type currentItemType = productItem.GetType();
+            return currentItemType.GetField(propKey).GetValue(productItem).ToString();
+        }
+
         static public bool DeterminePropKeyIsPropValue(ProductItem item, string propKey, string propValue)
         {
-            Type currentItemType = item.GetType();
-            string currentItemPropValue = currentItemType.GetField(propKey).GetValue(item).ToString();
+            string currentItemPropValue = ThaoTacHeThong.GetPropValueFromProductItem(item, propKey);
             return currentItemPropValue == propValue;
+        }
+
+        static public string[] TrimLowercaseSplitString(string inputString)
+        {
+            return inputString.Trim().ToLower().Split(" ");
+        }
+
+        static public bool DeterminePropKeyIsPropValueCaseInsensitive(ProductItem item, string propKey, string propValue)
+        {
+            string currentItemPropValue = ThaoTacHeThong.GetPropValueFromProductItem(item, propKey);
+            string[] currentItemPropValueStringArray = ThaoTacHeThong.TrimLowercaseSplitString(currentItemPropValue);
+            string coreContentOfCurrentItemPropValue = String.Join("", currentItemPropValueStringArray);
+
+            string[] propValueStringArray = ThaoTacHeThong.TrimLowercaseSplitString(propValue);
+            string coreContentOfPropValue = String.Join("", propValueStringArray);
+
+            return coreContentOfCurrentItemPropValue == coreContentOfPropValue;
         }
 
         static public bool DeterminePropKeyIsNotPropValue(ProductItem item, string propKey, string propValue)
         {
-            Type currentItemType = item.GetType();
-            string currentItemPropValue = currentItemType.GetField(propKey).GetValue(item).ToString().ToLower();
+            string currentItemPropValue = ThaoTacHeThong.GetPropValueFromProductItem(item, propKey).ToLower();
             // So sanh ca 2 gia tri o cung Lower case de dam bao cung noi dung - case insensitive
             return currentItemPropValue != propValue.ToLower();
         }
@@ -230,7 +251,7 @@ namespace QuanLyCuaHang
         static public ProductItem[] TimKiemSanPham(ProductItem[] products)
         {
             (string propKey, string propValue) = ThaoTacHeThong.HanhDongTheoDacTinh();
-            ProductItem[] macthProductList = Array.FindAll(products, item => ThaoTacHeThong.DeterminePropKeyIsPropValue(item, propKey, propValue));
+            ProductItem[] macthProductList = Array.FindAll(products, item => ThaoTacHeThong.DeterminePropKeyIsPropValueCaseInsensitive(item, propKey, propValue));
             ThaoTacHeThong.HienThiDanhSachSanPham(macthProductList, $"Danh sach san pham phu hop voi {propKey} ban yeu cau:");
             return products;
         }
