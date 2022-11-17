@@ -48,7 +48,9 @@ namespace QuanLyCuaHang
                 case "2":
                     Console.WriteLine("Ban chon thao tac theo LOAI HANG - Category");
                     return ThaoTacTheoLoaiHang.DanhSachThaoTacTrenLoaiHang(products);
-
+                case "3":
+                    Console.WriteLine("Thoat khoi chuong trinh...");
+                    return null;
                 default:
                     Console.WriteLine("Mac dinh - By default, Ban chon thao tac theo SAN PHAM - Product");
                     return ThaoTacTheoSanPham.DanhSachThaoTacTrenSanPham(products);

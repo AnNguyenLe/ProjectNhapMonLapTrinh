@@ -32,10 +32,14 @@ namespace QuanLyCuaHang
             {
                 // Hoi nguoi dung muon lam gi tiep theo
                 productList = ThaoTacHeThong.HienThiPhanLoaiThaoTac(productList);
+                if (productList == null)
+                {
+                    break;
+                }
                 
             }
             Console.WriteLine("Da thoat khoi chuong trinh - De tiep tuc su dung, ban hay khoi dong lai");
-            Console.ReadLine();
+            Console.Read();
         }
     }
 }
