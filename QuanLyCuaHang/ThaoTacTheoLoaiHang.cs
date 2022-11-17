@@ -27,17 +27,18 @@ namespace QuanLyCuaHang
                     return XoaLoaiHang(products);
                 case "C":
                     Console.WriteLine("Ban chon SUA/THAY DOI LOAI HANG");
-                    return ThaoTacTheoSanPham.ThayDoiSanPham(products);
+                    return ThayDoiLoaiHang(products);
                 case "D":
                     Console.WriteLine("Ban chon TIM KIEM LOAI HANG");
-                    return ThaoTacTheoSanPham.TimKiemSanPham(products); ;
+                    return TimKiemLoaiHang(products); ;
                 case "E":
                     Console.WriteLine("Ban chon HIEN THI DANH SACH LOAI HANG");
-                    ThaoTacHeThong.HienThiDanhSachSanPham(products, "Danh sach loai hang hien co");
+                    string[] uniqueCategoryList = HelperFunctions.GetUniqueCategoryList(products);
+                    HienThiDanhSachLoaiHang(uniqueCategoryList, "Danh sach loai hang hien co");
                     return products;
                 default:
                     Console.WriteLine("Mac dinh - By default: Ban chon THEM LOAI HANG");
-                    return ThaoTacTheoSanPham.ThemSanPhamMoi(products);
+                    return ThemLoaiHangMoi(products);
             }
         }
 
@@ -116,14 +117,14 @@ namespace QuanLyCuaHang
 
             string userConfirmation = Console.ReadLine();
 
-            if (userConfirmation != "Yes")
+            if (userConfirmation.ToLower() != "yes")
             {
                 Console.WriteLine("Da dung viec xoa loai hang - Khong san pham nao bi xoa");
                 return products;
             }
 
-            ProductItem[] deletedProducts = Array.FindAll(products, item => HelperFunctions.DeterminePropKeyIsPropValue(item, "category", category));
-            ProductItem[] finalProductList = Array.FindAll(products, item => HelperFunctions.DeterminePropKeyIsNotPropValue(item, "category", category));
+            ProductItem[] deletedProducts = Array.FindAll(products, item => HelperFunctions.DeterminePropKeyIsPropValue(item, Constants.PROP_KEY_CATEGORY, category));
+            ProductItem[] finalProductList = Array.FindAll(products, item => HelperFunctions.DeterminePropKeyIsNotPropValue(item, Constants.PROP_KEY_CATEGORY, category));
 
             Console.WriteLine($"Da xoa san pham co loai hang la {category} thanh cong!");
 
@@ -132,6 +133,74 @@ namespace QuanLyCuaHang
             ThaoTacHeThong.HienThiDanhSachSanPham(finalProductList, "Danh sach san pham con lai:");
 
             return finalProductList;
+        }
+
+        static public ProductItem[] TimKiemLoaiHang(ProductItem[] products)
+        {
+            string[] uniqueCategoryList = HelperFunctions.GetUniqueCategoryList(products);
+            Console.WriteLine("Hien tai co nhung loai hang sau day:");
+            HienThiDanhSachLoaiHang(uniqueCategoryList, "Danh sach loai hang hien co");
+            Console.Write("Nhap loai hang ban muon tim kiem: ");
+            string searchCategory = Console.ReadLine();
+
+            if (!uniqueCategoryList.Contains(searchCategory))
+            {
+                Console.WriteLine("Khong tim thay loai hang ban vua nhap!");
+                return products;
+            }
+
+            ProductItem[] matchedProducts = Array.FindAll(products, item => HelperFunctions.DeterminePropKeyIsPropValue(item, Constants.PROP_KEY_CATEGORY, searchCategory));
+            ThaoTacHeThong.HienThiDanhSachSanPham(matchedProducts, $"Danh sach san pham duoc phan loai la {searchCategory}: ");
+            return products;
+        }
+
+        static public ProductItem[] ThayDoiLoaiHang(ProductItem[] products)
+        {
+            string[] uniqueCategoryList = HelperFunctions.GetUniqueCategoryList(products);
+            Console.WriteLine("Hien tai co nhung loai hang sau day:");
+            HienThiDanhSachLoaiHang(uniqueCategoryList, "Danh sach loai hang hien co");
+            Console.Write("Nhap loai hang ban muon thay doi: ");
+
+            string searchCategory = Console.ReadLine();
+
+            if (!uniqueCategoryList.Contains(searchCategory))
+            {
+                Console.WriteLine("Khong tim thay loai hang ban vua nhap!");
+                return products;
+            }
+
+            Console.Write($"Nhap ten loai hang moi thay the cho {searchCategory}: ");
+            string updatedCategory = Console.ReadLine();
+
+            Console.WriteLine($"Nhung san pham duoc danh dau la loai hang {searchCategory} se bi thay doi thanh {updatedCategory} - ban co muon tiep tuc?");
+            Console.Write("Nhap 'Yes' neu ban muon tiep tuc: ");
+
+            string userConfirmation = Console.ReadLine();
+
+            if (userConfirmation.ToLower() != "yes")
+            {
+                Console.WriteLine("Da dung viec thay doi loai hang - Khong san pham nao bi thay doi");
+                return products;
+            }
+
+            ProductItem[] toBeUpdatedProducts = Array.FindAll(products, item => HelperFunctions.DeterminePropKeyIsPropValue(item, Constants.PROP_KEY_CATEGORY, searchCategory));
+
+            for (int i = 0; i < toBeUpdatedProducts.Length; i++)
+            {
+                ProductItem oldProduct = toBeUpdatedProducts[i];
+                int index = Array.IndexOf(products, toBeUpdatedProducts[i]);
+
+                object boxedOldProduct = oldProduct;
+                oldProduct.GetType().GetField(Constants.PROP_KEY_CATEGORY)?.SetValue(boxedOldProduct, updatedCategory);
+                ProductItem updatedProduct = (ProductItem)boxedOldProduct;
+
+                products[index] = updatedProduct;
+            }
+
+            Console.WriteLine($"Da cap nhat san pham co loai hang la {searchCategory} thanh {updatedCategory} thanh cong!");
+            ThaoTacHeThong.HienThiDanhSachSanPham(toBeUpdatedProducts, "Danh sach san pham da cap nhat loai hang moi:");
+
+            return products;
         }
     }
 }

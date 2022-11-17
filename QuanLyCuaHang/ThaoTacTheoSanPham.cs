@@ -23,19 +23,19 @@ namespace QuanLyCuaHang
             switch (selection)
             {
                 case "1":
-                    return ("name", inputValue);
+                    return (Constants.PROP_KEY_NAME, inputValue);
                 case "2":
-                    return ("id", inputValue);
+                    return (Constants.PROP_KEY_ID, inputValue);
                 case "3":
-                    return ("expDate", inputValue);
+                    return (Constants.PROP_KEY_EXP_DATE, inputValue);
                 case "4":
-                    return ("yearOfManufacture", inputValue);
+                    return (Constants.PROP_KEY_YEAR_OF_MANUFACTURE, inputValue);
                 case "5":
-                    return ("manufacturer", inputValue);
+                    return (Constants.PROP_KEY_MANUFACTURER, inputValue);
                 case "6":
-                    return ("category", inputValue);
+                    return (Constants.PROP_KEY_CATEGORY, inputValue);
                 default:
-                    return ("id", inputValue);
+                    return (Constants.PROP_KEY_ID, inputValue);
             }
 
         }
@@ -141,7 +141,7 @@ namespace QuanLyCuaHang
             Console.Write("Hay chon Ma (id) cua san pham ma ban muon cap nhat trong danh sach san pham phia tren: ");
             string selectedId = Console.ReadLine();
 
-            int matchProductIndex = Array.FindIndex(products, item => HelperFunctions.DeterminePropKeyIsPropValue(item, "id", selectedId));
+            int matchProductIndex = Array.FindIndex(products, item => HelperFunctions.DeterminePropKeyIsPropValue(item, Constants.PROP_KEY_ID, selectedId));
             ProductItem oldProduct = products[matchProductIndex];
 
             (string propKey, string propValue) = HanhDongTheoDacTinh();
@@ -149,7 +149,7 @@ namespace QuanLyCuaHang
 
             // Update value cho key trong product da chon
             object boxedOldProduct = oldProduct;
-            oldProduct.GetType().GetField(propKey).SetValue(boxedOldProduct, propValue);
+            oldProduct.GetType().GetField(propKey)?.SetValue(boxedOldProduct, propValue);
             ProductItem updatedProduct = (ProductItem)boxedOldProduct;
 
             // Cap nhat productList
