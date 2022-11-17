@@ -16,7 +16,7 @@ namespace QuanLyCuaHang
             this.name = name;
             this.expDate = DateTime.Parse(expDate);
             this.manufacturer = manufacturer;
-            this.yearOfManufacture = Int32.Parse(yearOfManufacture);
+            this.yearOfManufacture = int.Parse(yearOfManufacture);
             this.category = category;
         }
     }

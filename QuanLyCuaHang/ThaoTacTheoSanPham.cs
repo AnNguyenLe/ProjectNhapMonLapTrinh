@@ -15,10 +15,10 @@ namespace QuanLyCuaHang
             Console.WriteLine("(Lua chon mac dinh la DUA TREN MA (ID) của san pham)");
 
             Console.Write("Lua chon cua ban la: ");
-            string selection = Console.ReadLine();
+            string selection = ThaoTacHeThong.NhapGiaTri();
 
             Console.Write("Nhap gia tri: Vi du, ban chon TEN san pham - thi nhap: 'Banh Mi': ");
-            string inputValue = Console.ReadLine();
+            string inputValue = ThaoTacHeThong.NhapGiaTri();
 
             switch (selection)
             {
@@ -52,7 +52,7 @@ namespace QuanLyCuaHang
             Console.WriteLine("(Trong truong hop nhap khong theo cac loai ke tren - A: THEM san pham se duoc chon mac dinh)");
             Console.Write("Su lua chon cua ban la: ");
 
-            string action = Console.ReadLine();
+            string action = ThaoTacHeThong.NhapGiaTri();
 
             switch (action.ToUpper())
             {
@@ -84,22 +84,22 @@ namespace QuanLyCuaHang
             Console.WriteLine("Nhap thong tin cho san pham moi:");
 
             Console.Write("ID cua san pham: ");
-            newProduct.id = Console.ReadLine();
+            newProduct.id = ThaoTacHeThong.NhapGiaTri();
 
             Console.Write("Ten cua san pham: ");
-            newProduct.name = Console.ReadLine();
+            newProduct.name = ThaoTacHeThong.NhapGiaTri();
 
             Console.Write("Han su dung cua san pham - vi du: Jan 1, 2009: ");
-            newProduct.expDate = DateTime.Parse(Console.ReadLine());
+            newProduct.expDate = DateTime.Parse(ThaoTacHeThong.NhapGiaTri());
 
             Console.Write("Nam san xuat cua san pham - vi du: 2022: ");
-            newProduct.yearOfManufacture = int.Parse(Console.ReadLine());
+            newProduct.yearOfManufacture = int.Parse(ThaoTacHeThong.NhapGiaTri());
 
             Console.Write("Ten cua nha san xuat: ");
-            newProduct.manufacturer = Console.ReadLine();
+            newProduct.manufacturer = ThaoTacHeThong.NhapGiaTri();
 
             Console.Write("Loai san pham - vi du: Loai san pham cua Banh Mi la Thuc Pham: ");
-            newProduct.category = Console.ReadLine();
+            newProduct.category = ThaoTacHeThong.NhapGiaTri();
 
             // Tang kich thuoc cua Array len 1
             Array.Resize(ref products, products.Length + 1);
@@ -139,7 +139,7 @@ namespace QuanLyCuaHang
         {
             ThaoTacHeThong.HienThiDanhSachSanPham(products, "Hay chon Ma (id) cua san pham ma ban muon cap nhat: ");
             Console.Write("Hay chon Ma (id) cua san pham ma ban muon cap nhat trong danh sach san pham phia tren: ");
-            string selectedId = Console.ReadLine();
+            string selectedId = ThaoTacHeThong.NhapGiaTri();
 
             int matchProductIndex = Array.FindIndex(products, item => HelperFunctions.DeterminePropKeyIsPropValue(item, Constants.PROP_KEY_ID, selectedId));
             ProductItem oldProduct = products[matchProductIndex];

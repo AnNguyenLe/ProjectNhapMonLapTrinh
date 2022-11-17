@@ -3,6 +3,21 @@ namespace QuanLyCuaHang
 {
     public class ThaoTacHeThong
     {
+        static public string NhapGiaTri()
+        {
+            string inputValue = Console.ReadLine();
+            while(string.IsNullOrWhiteSpace(inputValue))
+            {
+                Console.Write("Ban chua nhap gia tri - vui long nhap gia tri moi: ");
+                inputValue = Console.ReadLine();
+                if(string.IsNullOrWhiteSpace(inputValue))
+                {
+                    break;
+                }
+            }
+            string capitalizeEachFirstLetterOfWord = Thread.CurrentThread.CurrentCulture.TextInfo.ToTitleCase(inputValue.ToLower());
+            return capitalizeEachFirstLetterOfWord;
+        }
         
         static public void HienThiSanPham(ProductItem product)
         {
@@ -36,7 +51,7 @@ namespace QuanLyCuaHang
             Console.WriteLine("(Trong truong hop nhap khong theo cac loai ke tren - 1 se duoc chon mac dinh)");
             Console.Write("Su lua chon cua ban la: ");
 
-            string actionCategory = Console.ReadLine();
+            string actionCategory = NhapGiaTri();
 
 
             switch (actionCategory)

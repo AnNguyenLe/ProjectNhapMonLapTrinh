@@ -15,7 +15,7 @@ namespace QuanLyCuaHang
             Console.WriteLine("(Trong truong hop nhap khong theo cac loai ke tren - A: THEM loai hang se duoc chon mac dinh)");
             Console.Write("Su lua chon cua ban la: ");
 
-            string action = Console.ReadLine();
+            string action = ThaoTacHeThong.NhapGiaTri();
 
             switch (action.ToUpper())
             {
@@ -60,7 +60,7 @@ namespace QuanLyCuaHang
             HienThiDanhSachLoaiHang(uniqueCategoryList, "Danh sach loai hang hien co");
 
             Console.Write("Nhap ten loai hang moi: ");
-            string newCategory = Console.ReadLine();
+            string newCategory = ThaoTacHeThong.NhapGiaTri();
 
             // Check if newCategory exist in uniqueCategoryList
             if (uniqueCategoryList.Contains(newCategory))
@@ -73,19 +73,19 @@ namespace QuanLyCuaHang
             Console.WriteLine("Nhap thong tin cho san pham moi cho loai hang ban vua tao:");
 
             Console.Write("ID cua san pham: ");
-            newProduct.id = Console.ReadLine();
+            newProduct.id = ThaoTacHeThong.NhapGiaTri();
 
             Console.Write("Ten cua san pham: ");
-            newProduct.name = Console.ReadLine();
+            newProduct.name = ThaoTacHeThong.NhapGiaTri();
 
             Console.Write("Han su dung cua san pham - vi du: Jan 1, 2009: ");
-            newProduct.expDate = DateTime.Parse(Console.ReadLine());
+            newProduct.expDate = DateTime.Parse(ThaoTacHeThong.NhapGiaTri());
 
             Console.Write("Nam san xuat cua san pham - vi du: 2022: ");
-            newProduct.yearOfManufacture = Int32.Parse(Console.ReadLine());
+            newProduct.yearOfManufacture = int.Parse(ThaoTacHeThong.NhapGiaTri());
 
             Console.Write("Ten cua nha san xuat: ");
-            newProduct.manufacturer = Console.ReadLine();
+            newProduct.manufacturer = ThaoTacHeThong.NhapGiaTri();
 
             newProduct.category = newCategory;
 
@@ -104,7 +104,7 @@ namespace QuanLyCuaHang
             string[] uniqueCategoryList = HelperFunctions.GetUniqueCategoryList(products);
 
             Console.Write("Nhap loai hang ban muon xoa:");
-            string category = Console.ReadLine();
+            string category = ThaoTacHeThong.NhapGiaTri();
 
             if (!uniqueCategoryList.Contains(category))
             {
@@ -115,7 +115,7 @@ namespace QuanLyCuaHang
             Console.WriteLine($"Nhung san pham duoc danh dau la loai hang {category} se bi xoa - ban co muon tiep tuc?");
             Console.Write("Nhap 'Yes' neu ban muon tiep tuc: ");
 
-            string userConfirmation = Console.ReadLine();
+            string userConfirmation = ThaoTacHeThong.NhapGiaTri();
 
             if (userConfirmation.ToLower() != "yes")
             {
@@ -141,7 +141,7 @@ namespace QuanLyCuaHang
             Console.WriteLine("Hien tai co nhung loai hang sau day:");
             HienThiDanhSachLoaiHang(uniqueCategoryList, "Danh sach loai hang hien co");
             Console.Write("Nhap loai hang ban muon tim kiem: ");
-            string searchCategory = Console.ReadLine();
+            string searchCategory = ThaoTacHeThong.NhapGiaTri();
 
             if (!uniqueCategoryList.Contains(searchCategory))
             {
@@ -161,7 +161,7 @@ namespace QuanLyCuaHang
             HienThiDanhSachLoaiHang(uniqueCategoryList, "Danh sach loai hang hien co");
             Console.Write("Nhap loai hang ban muon thay doi: ");
 
-            string searchCategory = Console.ReadLine();
+            string searchCategory = ThaoTacHeThong.NhapGiaTri();
 
             if (!uniqueCategoryList.Contains(searchCategory))
             {
@@ -170,12 +170,12 @@ namespace QuanLyCuaHang
             }
 
             Console.Write($"Nhap ten loai hang moi thay the cho {searchCategory}: ");
-            string updatedCategory = Console.ReadLine();
+            string updatedCategory = ThaoTacHeThong.NhapGiaTri();
 
             Console.WriteLine($"Nhung san pham duoc danh dau la loai hang {searchCategory} se bi thay doi thanh {updatedCategory} - ban co muon tiep tuc?");
             Console.Write("Nhap 'Yes' neu ban muon tiep tuc: ");
 
-            string userConfirmation = Console.ReadLine();
+            string userConfirmation = ThaoTacHeThong.NhapGiaTri();
 
             if (userConfirmation.ToLower() != "yes")
             {

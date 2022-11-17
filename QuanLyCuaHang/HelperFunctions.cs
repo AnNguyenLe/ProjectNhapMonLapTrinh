@@ -11,7 +11,7 @@ namespace QuanLyCuaHang
 
         static public bool DeterminePropKeyIsPropValue(ProductItem item, string propKey, string propValue)
         {
-            string currentItemPropValue = HelperFunctions.GetPropValueFromProductItem(item, propKey);
+            string currentItemPropValue = GetPropValueFromProductItem(item, propKey);
             return currentItemPropValue == propValue;
         }
 
@@ -22,19 +22,19 @@ namespace QuanLyCuaHang
 
         static public bool DeterminePropKeyIsPropValueCaseInsensitive(ProductItem item, string propKey, string propValue)
         {
-            string currentItemPropValue = HelperFunctions.GetPropValueFromProductItem(item, propKey);
-            string[] currentItemPropValueStringArray = HelperFunctions.TrimLowercaseSplitString(currentItemPropValue);
-            string coreContentOfCurrentItemPropValue = String.Join("", currentItemPropValueStringArray);
+            string currentItemPropValue = GetPropValueFromProductItem(item, propKey);
+            string[] currentItemPropValueStringArray = TrimLowercaseSplitString(currentItemPropValue);
+            string coreContentOfCurrentItemPropValue = string.Join("", currentItemPropValueStringArray);
 
-            string[] propValueStringArray = HelperFunctions.TrimLowercaseSplitString(propValue);
-            string coreContentOfPropValue = String.Join("", propValueStringArray);
+            string[] propValueStringArray = TrimLowercaseSplitString(propValue);
+            string coreContentOfPropValue = string.Join("", propValueStringArray);
 
             return coreContentOfCurrentItemPropValue == coreContentOfPropValue;
         }
 
         static public bool DeterminePropKeyIsNotPropValue(ProductItem item, string propKey, string propValue)
         {
-            string currentItemPropValue = HelperFunctions.GetPropValueFromProductItem(item, propKey).ToLower();
+            string currentItemPropValue = GetPropValueFromProductItem(item, propKey).ToLower();
             // So sanh ca 2 gia tri o cung Lower case de dam bao cung noi dung - case insensitive
             return currentItemPropValue != propValue.ToLower();
         }
