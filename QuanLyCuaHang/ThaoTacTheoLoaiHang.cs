@@ -79,7 +79,7 @@ namespace QuanLyCuaHang
             newProduct.name = ThaoTacHeThong.NhapGiaTri();
 
             Console.Write("Han su dung cua san pham - vi du: Jan 1, 2009: ");
-            newProduct.expDate = DateTime.Parse(ThaoTacHeThong.NhapGiaTri());
+            newProduct.expDate = DateTime.Parse(ThaoTacHeThong.NhapGiaTri()).ToString("dd/MM/yyyy");
 
             Console.Write("Nam san xuat cua san pham - vi du: 2022: ");
             newProduct.yearOfManufacture = int.Parse(ThaoTacHeThong.NhapGiaTri());

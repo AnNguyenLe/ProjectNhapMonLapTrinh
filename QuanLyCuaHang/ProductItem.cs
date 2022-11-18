@@ -5,7 +5,7 @@ namespace QuanLyCuaHang
     {
         public string id;
         public string name;
-        public DateTime expDate;
+        public string expDate;
         public string manufacturer;
         public int yearOfManufacture;
         public string category;
@@ -14,7 +14,7 @@ namespace QuanLyCuaHang
         {
             this.id = id;
             this.name = name;
-            this.expDate = DateTime.Parse(expDate);
+            this.expDate = DateTime.Parse(expDate).ToString("dd/MM/yyyy");
             this.manufacturer = manufacturer;
             this.yearOfManufacture = int.Parse(yearOfManufacture);
             this.category = category;

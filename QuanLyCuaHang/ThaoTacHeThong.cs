@@ -47,7 +47,8 @@ namespace QuanLyCuaHang
             Console.WriteLine("Ban muon thao tac theo:");
             Console.WriteLine("- San pham (Product): Nhap so 1");
             Console.WriteLine("- Loai hang (Category): Nhap so 2");
-            Console.WriteLine("- De thoat khoi chuong trinh: Nhap so 3");
+            Console.WriteLine("- Hien thi tat ca cac san pham hien co: Nhap so 3");
+            Console.WriteLine("- De thoat khoi chuong trinh: Nhap so 4");
             Console.WriteLine("(Trong truong hop nhap khong theo cac loai ke tren - 1 se duoc chon mac dinh)");
             Console.Write("Su lua chon cua ban la: ");
 
@@ -59,11 +60,13 @@ namespace QuanLyCuaHang
                 case "1":
                     Console.WriteLine("Ban chon thao tac theo SAN PHAM - Product");
                     return ThaoTacTheoSanPham.DanhSachThaoTacTrenSanPham(products);
-
                 case "2":
                     Console.WriteLine("Ban chon thao tac theo LOAI HANG - Category");
                     return ThaoTacTheoLoaiHang.DanhSachThaoTacTrenLoaiHang(products);
                 case "3":
+                    HienThiDanhSachSanPham(products, "Danh sach san pham hien co: ");
+                    return products;
+                case "4":
                     Console.WriteLine("Thoat khoi chuong trinh...");
                     return null;
                 default:

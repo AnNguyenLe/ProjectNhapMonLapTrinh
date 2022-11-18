@@ -36,7 +36,6 @@ namespace QuanLyCuaHang
                 {
                     break;
                 }
-                
             }
             Console.WriteLine("Da thoat khoi chuong trinh - De tiep tuc su dung, ban hay khoi dong lai");
             Console.Read();

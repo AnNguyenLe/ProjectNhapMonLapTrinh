@@ -29,6 +29,9 @@ namespace QuanLyCuaHang
             string[] propValueStringArray = TrimLowercaseSplitString(propValue);
             string coreContentOfPropValue = string.Join("", propValueStringArray);
 
+            Console.WriteLine($"coreContentOfCurrentItemPropValue: {coreContentOfCurrentItemPropValue}");
+            Console.WriteLine($"coreContentOfPropValue: {coreContentOfPropValue}");
+
             return coreContentOfCurrentItemPropValue == coreContentOfPropValue;
         }
 

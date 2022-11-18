@@ -17,6 +17,7 @@ namespace QuanLyCuaHang
             Console.Write("Lua chon cua ban la: ");
             string selection = ThaoTacHeThong.NhapGiaTri();
 
+            Console.WriteLine("Truong hop tim kiem san pham theo ngay het han: Vui long nhap cu phap DD/MM/YYYY - vi du: Ngay 1 thang 2 nam 2020 se la 01/02/2020.");
             Console.Write("Nhap gia tri: Vi du, ban chon TEN san pham - thi nhap: 'Banh Mi': ");
             string inputValue = ThaoTacHeThong.NhapGiaTri();
 
@@ -27,7 +28,7 @@ namespace QuanLyCuaHang
                 case "2":
                     return (Constants.PROP_KEY_ID, inputValue);
                 case "3":
-                    return (Constants.PROP_KEY_EXP_DATE, inputValue);
+                    return (Constants.PROP_KEY_EXP_DATE, DateTime.Parse(inputValue).ToString());
                 case "4":
                     return (Constants.PROP_KEY_YEAR_OF_MANUFACTURE, inputValue);
                 case "5":
@@ -90,7 +91,7 @@ namespace QuanLyCuaHang
             newProduct.name = ThaoTacHeThong.NhapGiaTri();
 
             Console.Write("Han su dung cua san pham - vi du: Jan 1, 2009: ");
-            newProduct.expDate = DateTime.Parse(ThaoTacHeThong.NhapGiaTri());
+            newProduct.expDate = DateTime.Parse(ThaoTacHeThong.NhapGiaTri()).ToString("dd/MM/yyyy");
 
             Console.Write("Nam san xuat cua san pham - vi du: 2022: ");
             newProduct.yearOfManufacture = int.Parse(ThaoTacHeThong.NhapGiaTri());
@@ -130,7 +131,9 @@ namespace QuanLyCuaHang
         static public ProductItem[] TimKiemSanPham(ProductItem[] products)
         {
             (string propKey, string propValue) = HanhDongTheoDacTinh();
-            ProductItem[] macthProductList = Array.FindAll(products, item => HelperFunctions.DeterminePropKeyIsPropValueCaseInsensitive(item, propKey, propValue));
+            string inputExpDate = DateTime.Parse(propValue).ToString("dd/MM/yyyy");
+
+            ProductItem[] macthProductList = Array.FindAll(products, item => HelperFunctions.DeterminePropKeyIsPropValueCaseInsensitive(item, propKey, inputExpDate));
             ThaoTacHeThong.HienThiDanhSachSanPham(macthProductList, $"Danh sach san pham phu hop voi {propKey} ban yeu cau:");
             return products;
         }
